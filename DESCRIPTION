@@ -1,0 +1,26 @@
+Package: ASTranslation
+Type: Package
+Title: Assessing Whether a Gene Has Allele-Specific Translation For a Given
+    Individual
+Version: 1.0.0
+Authors@R: c(
+    person("Angela", "Li", email = "asli@stanford.edu", role = c("cre", "aut")),
+    person("Can", "Cenik", email = "ccenik@stanford.edu", role = "aut"))
+Maintainer: Angela Li <asli@stanford.edu>
+Description: This package helps the user assess whether a gene in a particular
+    heterozygous individual has allele-specific translation based on data from an
+    assay that combines polysome profiling and digital droplet PCR (ddPCR). It uses
+    bootstrapping techniques to determine whether the amount of mutant and wildtype
+    transcripts in each fraction (either directly from the polysome profiling or
+    grouped by number of ribosomes) is significantly different from the expected
+    values. Each fraction corresponds to a particular weight (heavier transcripts
+    contain a greater number of ribosomes, indicating greater translation).
+Imports:
+    dplyr,
+    ggplot2,
+    grid,
+    reshape2
+License: CC0
+LazyData: TRUE
+RoxygenNote: 5.0.1
+Suggests: testthat
