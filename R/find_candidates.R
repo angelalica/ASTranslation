@@ -1,5 +1,4 @@
 #' Determining which SNPs are candidates for allele specific translation
-#'
 #' This function helps users identify which genetic variants are candidates for
 #' allele-specific translation (i.e. may lead to differential translation) by
 #' using RNA-Seq and Ribosome profiling data from all heterozygous SNPs in the
