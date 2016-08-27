@@ -1,14 +1,13 @@
-#' Assess whether a gene has allele specific translation in a given individual.
+#' Determines whether a candidate SNP has allele specific translation.
 #'
-#' This package helps the user assess whether a gene in a particular
-#' heterozygous individual has allele-specific translation based on data from an
-#' assay that combines polysome profiling and digital droplet PCR (ddPCR). It
-#' uses bootstrapping techniques to determine whether the amount of mutant and
-#' wildtype transcripts in each fraction (directly from the polysome profiling
-#' or grouped by number of ribosomes) is significantly different from the
-#' expected values. Each fraction corresponds to a particular weight (heavier
-#' transcripts contain a greater number of ribosomes, indicating greater
-#' translation).
+#' This function helps the user determine whether a particular heterozygous SNP
+#' has allele-specific translation based on data from an assay that combines
+#' polysome profiling and digital droplet PCR (ddPCR). It uses bootstrapping
+#' techniques to determine whether the amount of mutant and wildtype transcripts
+#' in each fraction (directly from the polysome profiling or grouped by number of
+#' ribosomes) is significantly different from the expected values. Each fraction
+#' corresponds to a particular weight (heavier transcripts contain a greater number
+#' of ribosomes, indicating greater translation).
 #'
 #' @param file.name Filename of the ddPCR counts data file to be read in. The
 #'   data must be formatted in the following manner: each row corresponds to a
@@ -46,12 +45,12 @@
 #'   fractions (from the early fractions with no ribosomes to the heavier
 #'   fractions with 5+ ribosomes).
 #' @examples
-#'   analyze (filename = "gene1_ddPCR_data.csv", gene.name = "GENE1")
-#'   analyze (filename = "gene2_ddPCR_data.csv", gene.name = "GENE2", zoom.range = c(5, 16))
-#'   analyze (filename = "gene3_ddPCR_data.csv", gene.name = "GENE3", expected.value = 1.2, grouped = TRUE, grouped.fractions = c(7, 3, 1, 1, 1, 5))
+#'   test_candidates (filename = "gene1_ddPCR_data.csv", gene.name = "GENE1")
+#'   test_candidates (filename = "gene2_ddPCR_data.csv", gene.name = "GENE2", zoom.range = c(5, 16))
+#'   test_candidates (filename = "gene3_ddPCR_data.csv", gene.name = "GENE3", expected.value = 1.2, grouped = TRUE, grouped.fractions = c(7, 3, 1, 1, 1, 5))
 
 # overall function (that user interacts with), provides significance testing for each fraction and generates summary plots
-analyze = function (file.name,
+test_candidates = function (file.name,
                     gene.name,
                     expected.value = NULL,
                     grouped = FALSE,

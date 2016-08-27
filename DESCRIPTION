@@ -1,21 +1,23 @@
 Package: ASTranslation
 Type: Package
-Title: Assessing Whether a Gene Has Allele-Specific Translation For a Given
-    Individual
+Title: Assessing Whether a SNP Affects Translation through Determination of
+    Allele-Specific Translation
 Version: 1.0.0
 Authors@R: c(
     person("Angela", "Li", email = "asli@stanford.edu", role = c("cre", "aut")),
     person("Can", "Cenik", email = "ccenik@stanford.edu", role = "aut"))
 Maintainer: Angela Li <asli@stanford.edu>
-Description: This package helps the user assess whether a gene in a particular
-    heterozygous individual has allele-specific translation based on data from an
-    assay that combines polysome profiling and digital droplet PCR (ddPCR). It uses
-    bootstrapping techniques to determine whether the amount of mutant and wildtype
-    transcripts in each fraction (either directly from the polysome profiling or
-    grouped by number of ribosomes) is significantly different from the expected
-    values. Each fraction corresponds to a particular weight (heavier transcripts
-    contain a greater number of ribosomes, indicating greater translation).
+Description: This package serves as an analytical pipeline for determining
+    allele-specific translation. It first identifies genetic variants that are
+    candidates for allele-specific translation (i.e. may lead to differential
+    translation) by using RNA-Seq and Ribosome profiling data from all
+    heterozygous SNPs in the transcriptome of a given individual. For each
+    candidate SNP, a separate function determines whether the SNP does have
+    allele-specific translation, using data from an experimental assay that
+    combines polysome profiling and digital droplet PCR (ddPCR), which gives
+    the distribution of number of ribosomes bound to the two alleles.
 Imports:
+    effsize,
     dplyr,
     ggplot2,
     grid,
